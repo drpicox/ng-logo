@@ -53,7 +53,7 @@ export class Home {
 
   selectLogo(area:string) {
     if (area === this.selectedLogo) {
-      this.selectedLogo = null;
+      this.reset();
     }
     else {
       this.selectedLogo = area;
@@ -72,6 +72,10 @@ export class Home {
             this.textColor = color;
             break;
     }
+    this.reset();
+  }
+
+  reset() {
     this.buttonClicked = null;
     this.selectedColor = null;
     this.selectedLogo = null;

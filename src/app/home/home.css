@@ -12,9 +12,11 @@
 }
 
 .palette-contaier {
+  max-height: 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }
 
 .palette-contaier button {
@@ -37,6 +39,31 @@ ul {
   list-style-type: none;
   position: absolute;
   bottom: 110px;
+  -moz-padding-start: 0;
+  -webkit-padding-start: 0;
+  padding-left: 0;
+}
+
+@media screen and (max-width: 865px) {
+  ul {
+    bottom: 220px;
+  }
+
+  ul button {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+@media screen and (min-width: 866px) and  (max-width: 1175px) {
+  ul {
+    bottom: 150px;
+  }
+
+  ul button {
+    width: 2em;
+    height: 2em;
+  }
 }
 
 .fade {

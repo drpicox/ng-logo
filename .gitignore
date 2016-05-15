@@ -59,3 +59,20 @@ npm-debug.log
 # IDE #
 .idea/
 *.swp
+
+
+# gh-pages branch specific ignore rules #
+config/
+src/
+.editorconfig
+.travis.yml
+karma.conf.js
+LICENSE
+package.json
+protractor.conf.js
+README.md
+tsconfig.json
+tslint.json
+typedoc.json
+typings.json
+webpack.config.js

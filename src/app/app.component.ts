@@ -45,6 +45,9 @@ import { Home } from './home';
       flex-direction: column;
       height: 100%;
     }
+    md-toolbar span {
+      cursor: pointer;
+    }
     footer{
       flex: 0 0 60px;
       padding: 10px;

@@ -6,7 +6,6 @@ import { RouteConfig, Router } from '@angular/router-deprecated';
 
 import { AppState } from './app.service';
 import { Home } from './home';
-import { RouterActive } from './router-active';
 
 /*
  * App Component
@@ -16,7 +15,7 @@ import { RouterActive } from './router-active';
   selector: 'app',
   pipes: [ ],
   providers: [ ],
-  directives: [ RouterActive ],
+  directives: [  ],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),
@@ -59,50 +58,32 @@ import { RouterActive } from './router-active';
     <md-content>
       <md-toolbar color="primary">
           <span>{{ name }}</span>
-          <span class="fill"></span>
-          <button md-button router-active [routerLink]=" ['Index'] ">
-            Index
-          </button>
-          <button md-button router-active [routerLink]=" ['Home'] ">
-            Home
-          </button>
-          <button md-button router-active [routerLink]=" ['About'] ">
-            About
-          </button>
       </md-toolbar>
       
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
       <router-outlet></router-outlet>
-
-      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+      
+      <span class="fill"></span>
 
       <footer>
-        <img [src]="angularclassLogo" width="6%">
-        WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
+        <img [src]="ngLogo" width="5%">
+        Angular 2 Logo Editor by <a [href]="url">@dweitz43</a>
       </footer>
       </md-content>
   `
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
+  { path: '/',      name: 'Index', component: Home, useAsDefault: true }
 ])
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
+  ngLogo = 'assets/img/angular.svg';
   loading = false;
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+  name = 'Angular 2 Logo Editor';
+  url = 'https://github.com/dweitz43';
 
   constructor(
     public appState: AppState) {
-
-  }
-
-  ngOnInit() {
-    console.log('Initial App State', this.appState.state);
   }
 
 }

@@ -1,28 +1,26 @@
 <div class="card-container">
-  <md-card x-large class="sample-content">Your Content Here</md-card>
+  <md-card class="sample-content">
+    <md-card-content align="center">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 250 250" style="enable-background:new 0 0 250 250;" width="25%" xml:space="preserve">
+        <g>
+          <polygon [ngStyle]="{'fill': selectedColor.primary}" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2 	"/>
+          <polygon [ngStyle]="{'fill': selectedColor.dark}" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 125,230 203.9,186.3 218.1,63.2 125,30 	"/>
+          <path [ngStyle]="{'fill': selectedColor.text}" d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
+            L125,52.1z M142,135.4H108l17-40.9L142,135.4z"/>
+        </g>
+      </svg>
+    </md-card-content>
+  </md-card>
   <md-card>
-    <md-card-title>Local State</md-card-title>
-    <md-card-content>
+    <md-card-title>
+      <button md-fab><md-icon>keyboard_arrow_left</md-icon></button>
+      <button md-fab><md-icon>font_download</md-icon></button>
+      <button md-fab><md-icon>keyboard_arrow_right</md-icon></button>
+    </md-card-title>
+    <md-card-content class="palette-contaier">
 
-      <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-        <md-input
-          placeholder="Submit Local State to App State"
-          [value]="localState.value"
-          (input)="localState.value = $event.target.value"
-          autofocus>
-        </md-input>
-
-        <button md-raised-button color="primary">Submit Value</button>
-      </form>
-      <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" [(ngModel)]="localState.value" autofocus>
-      -->
-
-      <pre>this.localState = {{ localState | json }}</pre>
+      <button md-raised-button *ngFor="let color of colors" [ngStyle]="{'background-color': color.primary, 'color': color.text}">{{color.name}}</button>
 
     </md-card-content>
   </md-card>

@@ -57,7 +57,7 @@ import { Home } from './home';
   template: `
     <md-content>
       <md-toolbar color="primary">
-          <span>{{ name }}</span>
+          <span [routerLink]="['Index']">{{ name }}</span>
       </md-toolbar>
       
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>

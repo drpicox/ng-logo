@@ -30,3 +30,17 @@ md-card-title {
   display: flex;
   justify-content: center;
 }
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  position: absolute;
+  bottom: 110px;
+}
+
+.fade {
+  fill: #f5f5f5 !important;
+}
+
+

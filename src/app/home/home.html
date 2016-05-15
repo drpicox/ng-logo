@@ -4,23 +4,36 @@
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          viewBox="0 0 250 250" style="enable-background:new 0 0 250 250;" width="25%" xml:space="preserve">
         <g>
-          <polygon [ngStyle]="{'fill': selectedColor.primary}" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2 	"/>
-          <polygon [ngStyle]="{'fill': selectedColor.dark}" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 125,230 203.9,186.3 218.1,63.2 125,30 	"/>
-          <path [ngStyle]="{'fill': selectedColor.text}" d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
+          <polygon [ngStyle]="{'fill': leftColor}" [ngClass]="{'fade': selectedLogo && selectedLogo !== 'left'}" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2 	"/>
+          <polygon [ngStyle]="{'fill': rightColor}" [ngClass]="{'fade': selectedLogo && selectedLogo !== 'right'}" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 125,230 203.9,186.3 218.1,63.2 125,30 	"/>
+          <path [ngStyle]="{'fill': textColor}" [ngClass]="{'fade': selectedLogo && selectedLogo !== 'text'}" d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
             L125,52.1z M142,135.4H108l17-40.9L142,135.4z"/>
         </g>
       </svg>
     </md-card-content>
+    <md-card-title>
+      <button md-fab (click)="selectLogo('left')"><md-icon>keyboard_arrow_left</md-icon></button>
+      <button md-fab (click)="selectLogo('text')"><md-icon>font_download</md-icon></button>
+      <button md-fab (click)="selectLogo('right')"><md-icon>keyboard_arrow_right</md-icon></button>
+    </md-card-title>
   </md-card>
   <md-card>
-    <md-card-title>
-      <button md-fab><md-icon>keyboard_arrow_left</md-icon></button>
-      <button md-fab><md-icon>font_download</md-icon></button>
-      <button md-fab><md-icon>keyboard_arrow_right</md-icon></button>
-    </md-card-title>
     <md-card-content class="palette-contaier">
 
-      <button md-raised-button *ngFor="let color of colors" [ngStyle]="{'background-color': color.primary, 'color': color.text}">{{color.name}}</button>
+      <div *ngFor="let color of colors">
+        <button md-raised-button [ngStyle]="{'background-color': color.primary, 'color': color.text}" (click)="selectColor(color)" [disabled]="!selectedLogo">{{color.name}}</button>
+        <ul *ngIf="selectedColor === color && buttonClicked">
+          <li>
+            <button md-fab class="color" [ngStyle]="{'background-color': color.light}" (click)="applyColor(color.light)"></button>
+          </li>
+          <li>
+            <button md-fab class="color" [ngStyle]="{'background-color': color.primary}" (click)="applyColor(color.primary)"></button>
+          </li>
+          <li>
+            <button md-fab class="color" [ngStyle]="{'background-color': color.dark}" (click)="applyColor(color.dark)"></button>
+          </li>
+        </ul>
+      </div>
 
     </md-card-content>
   </md-card>

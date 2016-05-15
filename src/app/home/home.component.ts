@@ -26,12 +26,55 @@ import {COLORS, Color} from './color';
   template: require('./home.html')
 })
 export class Home {
+  leftColor: string;
+  rightColor: string;
+  textColor: string;
+  selectedLogo: string;
   selectedColor: Color;
+  buttonClicked: boolean;
   colors: Color[];
 
   constructor() {
+    this.leftColor = '#F44336';
+    this.rightColor = '#D32F2F';
+    this.textColor = '#FFFFFF';
     this.colors = COLORS;
-    this.selectedColor = this.colors[0];
+  }
+
+  selectColor(color:Color) {
+    if (this.selectedColor && color.name === this.selectedColor.name) {
+      this.buttonClicked = !this.buttonClicked;
+    }
+    else {
+      this.buttonClicked = true;
+    }
+    this.selectedColor = color;
+  }
+
+  selectLogo(area:string) {
+    if (area === this.selectedLogo) {
+      this.selectedLogo = null;
+    }
+    else {
+      this.selectedLogo = area;
+    }
+  }
+
+  applyColor(color:string) {
+    switch (this.selectedLogo) {
+      case 'left':
+            this.leftColor = color;
+            break;
+      case 'right':
+            this.rightColor = color;
+            break;
+      case 'text':
+            this.textColor = color;
+            break;
+    }
+    this.buttonClicked = null;
+    this.selectedColor = null;
+    this.selectedLogo = null;
   }
 
 }

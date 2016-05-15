@@ -67,7 +67,12 @@ ul {
 }
 
 .fade {
-  fill: #f5f5f5 !important;
+  fill: #FFFFFF !important;
+}
+
+.outline {
+  stroke: black;
+  stroke-width: 5;
 }
 
 

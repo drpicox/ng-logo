@@ -44,14 +44,15 @@ ul {
   padding-left: 0;
 }
 
+li button {
+  cursor: -webkit-grab;
+  width: 2em;
+  height: 2em;
+}
+
 @media screen and (max-width: 865px) {
   ul {
     bottom: 220px;
-  }
-
-  ul button {
-    width: 2em;
-    height: 2em;
   }
 }
 
@@ -59,20 +60,14 @@ ul {
   ul {
     bottom: 150px;
   }
-
-  ul button {
-    width: 2em;
-    height: 2em;
-  }
 }
 
-.fade {
-  fill: #FFFFFF !important;
+li {
+  list-style: none;
 }
 
-.outline {
-  stroke: black;
-  stroke-width: 5;
+.fade-shield {
+  opacity: 0.1;
 }
 
 

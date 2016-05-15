@@ -50,9 +50,21 @@ li button {
   height: 2em;
 }
 
+li {
+  list-style: none;
+}
+
+.fade-shield {
+  opacity: 0.1;
+}
+
 @media screen and (max-width: 865px) {
   ul {
     bottom: 220px;
+  }
+
+  svg {
+    width: 75%;
   }
 }
 
@@ -62,12 +74,9 @@ li button {
   }
 }
 
-li {
-  list-style: none;
+@media screen and (min-width: 568px) and (max-width: 1175px) {
+  svg {
+    width: 50%;
+  }
 }
-
-.fade-shield {
-  opacity: 0.1;
-}
-
 

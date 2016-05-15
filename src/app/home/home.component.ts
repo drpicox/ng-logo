@@ -92,8 +92,10 @@ export class Home {
 
   private onDrop(args) {
     let [e, el] = args;
-    el.removeChild(e);
-    el.style.fill = e.id;
+    if (el) {
+      el.removeChild(e);
+      el.style.fill = e.id;
+    }
   }
 
   selectColor(color:Color) {

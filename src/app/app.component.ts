@@ -68,7 +68,7 @@ import { Home } from './home';
 
       <footer>
         <img [src]="ngLogo" width="5%">
-        Angular 2 Logo Editor by <a [href]="url">@dweitz43</a>
+        Angular 2 Logo Designer by <a [href]="url">@dweitz43</a>
       </footer>
       </md-content>
   `
@@ -79,7 +79,7 @@ import { Home } from './home';
 export class App {
   ngLogo = 'assets/img/angular.svg';
   loading = false;
-  name = 'Angular 2 Logo Editor';
+  name = 'Angular 2 Logo Designer';
   url = 'https://github.com/dweitz43';
 
   constructor(

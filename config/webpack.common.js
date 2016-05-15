@@ -17,7 +17,7 @@ const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular 2 Logo Editor',
+  title: 'Angular 2 Logo Designer',
   baseUrl: '/'
 };
 
